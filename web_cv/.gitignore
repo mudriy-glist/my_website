@@ -1,0 +1,5 @@
+__pycache__
+backend/admin.py
+.env*
+db.sqlite3
+venv/
