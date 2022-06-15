@@ -19,190 +19,35 @@
      background-repeat: no-repeat;
     }
 
-    #container {
-      width: 100%;
-      height: 700px;
-      -webkit-perspective: 800; /* For compatibility with iPhone 3.0, we leave off the units here */
-      -webkit-perspective-origin: 50% 225px;
-    }
-    #stage {
-      width: 100%;
-      height: 100%;
-      -webkit-transition: -webkit-transform 2s;
-      -webkit-transform-style: preserve-3d;
-    }
-    
-    #shape {
-      position: relative;
-      top: 160px;
-      margin: 0 auto;
-      height: 200px;
-      width: 200px;
-      -webkit-transform-style: preserve-3d;
-    }
-    
-    .plane {
-      position: absolute;
-      height: 200px;
-      width: 200px;
-      border: 1px solid white;
-      -webkit-border-radius: 12px;
-      -webkit-box-sizing: border-box;
-      text-align: center;
-      font-family: Times, serif;
-      font-size: 124pt;
-      color: black;
-      background-color: rgba(255, 255, 255, 0.6);
-      -webkit-transition: -webkit-transform 2s, opacity 2s;
-      -webkit-backface-visibility: hidden;
-    }
-
-    #shape.backfaces .plane {
-      -webkit-backface-visibility: visible;
-    }
-    
-    #shape {
-      -webkit-animation: spin 8s infinite linear;
-    }
-
-    @-webkit-keyframes spin {
-      from { -webkit-transform: rotateY(0); }
-      to   { -webkit-transform: rotateY(-360deg); }
-    }
-
-    /* ---------- cube styles ------------- */
-    .cube > .one {
-      opacity: 0.5;
-      -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateX(90deg) translateZ(100px);
-    }
-
-    .cube > .two {
-      opacity: 0.5;
-      -webkit-transform: scale3d(1.2, 1.2, 1.2) translateZ(100px);
-    }
-
-    .cube > .three {
-      opacity: 0.5;
-      -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateY(90deg) translateZ(100px);
-    }
-
-    .cube > .four {
-      opacity: 0.5;
-      -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateY(180deg) translateZ(100px);
-    }
-
-    .cube > .five {
-      opacity: 0.5;
-      -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateY(-90deg) translateZ(100px);
-    }
-
-    .cube > .six {
-      opacity: 0.5;
-      -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateX(-90deg) translateZ(100px) rotate(180deg);
-    }
+    .top {
+    /* background-color: #fff; */
+    background-image: url("{% static 'backend/python_logo.png' %}");
+    transform: rotateX(90deg) translateZ(calc(var(--size) * .5));
+  }
+  .bottom {
+    background-image: url("{% static 'backend/js_logo.jpg' %}");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotateX(90deg) translateZ(calc(var(--size) * -.5));
+  }
+  .left {
+    background-color: #ccc;
+    transform: rotateY(90deg) translateZ(calc(var(--size) * .5));
+  }
+  .right {
+    background-color: #ddd;
+    transform: rotateY(90deg) translateZ(calc(var(--size) * -.5));
+  }
+  .front {
+    background-color: #aaa;
+    transform: translateZ(calc(var(--size) * .5));
+  }
+  .back {
+    background-color: #bbb;
+    transform: translateZ(calc(var(--size) * -.5));
+  }
 
 
-    .cube > .seven {
-      -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateX(90deg) translateZ(100px) rotate(180deg);
-    }
-
-    .cube > .eight {
-      -webkit-transform: scale3d(0.8, 0.8, 0.8) translateZ(100px);
-    }
-
-    .cube > .nine {
-      -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateY(90deg) translateZ(100px);
-    }
-
-    .cube > .ten {
-      -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateY(180deg) translateZ(100px);
-    }
-
-    .cube > .eleven {
-      -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateY(-90deg) translateZ(100px);
-    }
-
-    .cube > .twelve {
-      -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateX(-90deg) translateZ(100px);
-    }
-
-    /* ---------- ring styles ------------- */
-    .ring > .one {
-      -webkit-transform: translateZ(380px);
-    }
-
-    .ring > .two {
-      -webkit-transform: rotateY(30deg) translateZ(380px);
-    }
-
-    .ring > .three {
-      -webkit-transform: rotateY(60deg) translateZ(380px);
-    }
-
-    .ring > .four {
-      -webkit-transform: rotateY(90deg) translateZ(380px);
-    }
-
-    .ring > .five {
-      -webkit-transform: rotateY(120deg) translateZ(380px);
-    }
-
-    .ring > .six {
-      -webkit-transform: rotateY(150deg) translateZ(380px);
-    }
-
-    .ring > .seven {
-      -webkit-transform: rotateY(180deg) translateZ(380px);
-    }
-
-    .ring > .eight {
-      -webkit-transform: rotateY(210deg) translateZ(380px);
-    }
-
-    .ring > .nine {
-      -webkit-transform: rotateY(-120deg) translateZ(380px);
-    }
-
-    .ring > .ten {
-      -webkit-transform: rotateY(-90deg) translateZ(380px);
-    }
-
-    .ring > .eleven {
-      -webkit-transform: rotateY(300deg) translateZ(380px);
-    }
-
-    .ring > .twelve {
-      -webkit-transform: rotateY(330deg) translateZ(380px);
-    }
-
-    #togglebutton {
-    font-size: 35pt;
-    background: rgb(0,0,0);
-background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(70,70,70,0.6250875350140056) 30%, rgba(23,23,23,1) 60%, rgba(121,121,121,1) 75%, rgba(0,0,0,1) 80%);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #fff !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
-    display: block;
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    text-align: center;
-    line-height:250px;
-    transition: all 0.4s ease 0s;
-      
-}
-
-    #togglebutton:hover {
-    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    transition: all 0.4s ease 0s;
-    text-decoration: none;
-    background: rgb(0,0,0);
-    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(23,23,23,0.7091211484593838) 32%, rgba(70,70,70,1) 52%, rgba(121,121,121,0.9640231092436975) 69%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 94%);
-}
 
   </style>
   <script type="text/javascript" charset="utf-8">
@@ -263,6 +108,11 @@ background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(70,70,70,0.6250875350
       else
         removeClassName(shape, 'backfaces');
     }
+
+    window.addEventListener('scroll', () => {
+  document.body.style.setProperty('--scroll',window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+}, false);
+
   </script>
 {% endblock %}
 
@@ -271,18 +121,18 @@ background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(70,70,70,0.6250875350
 <div id="container">
     <div id="stage" style="transform: translateZ(-200px);">
       <div id="shape" class=" backfaces  ring">
-        <div class="plane one">W</div>
+        <div class="plane one">S</div>
         <div class="plane two">E</div>
-        <div class="plane three">L</div>
-        <div class="plane four">C</div>
+        <div class="plane three">E</div>
+        <div class="plane four">P</div>
         <div class="plane five">O</div>
-        <div class="plane six">M</div>
-        <div class="plane seven">E</div>
-        <div class="plane eight">G</div>
-        <div class="plane nine">U</div>
-        <div class="plane ten">E</div>
-        <div class="plane eleven">S</div>
-        <div class="plane twelve">T</div>
+        <div class="plane six">R</div>
+        <div class="plane seven">T</div>
+        <div class="plane eight">F</div>
+        <div class="plane nine">O</div>
+        <div class="plane ten">L</div>
+        <div class="plane eleven">I</div>
+        <div class="plane twelve">O</div>
       </div>
     </div>
   </div>
@@ -293,6 +143,27 @@ background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(70,70,70,0.6250875350
 
 <h1 style="text-align: center;font-size: 48px;font-family: sans-serif;font-style: italic;">Hi! My name is Peter and I'm a web developer</h1>
 
+<div class="progress"></div>
 
+<div class="cube-wrap">
+  <div class="cube">
+    <div class="side top"></div>
+    <div class="side bottom"></div>
+    <div class="side front"></div>
+    <div class="side back"></div>
+    <div class="side left"></div>
+    <div class="side right"></div>
+  </div>
+</div>
+<div class="cube-wrap1">
+  <div class="cube">
+    <div class="side top"></div>
+    <div class="side bottom"></div>
+    <div class="side front"></div>
+    <div class="side back"></div>
+    <div class="side left"></div>
+    <div class="side right"></div>
+  </div>
+</div>
 
 {% endblock %}
