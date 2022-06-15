@@ -1,0 +1,5 @@
+__pycache__
+starbos/backend/admin.py
+.env*
+starbos/db.sqlite3
+venv/
