@@ -117,6 +117,7 @@ background: linear-gradient(90deg, rgba(103,73,38,1) 0%, rgba(153,109,152,1) 100
         removeClassName(shape, 'backfaces');
     }
 
+   
     window.addEventListener('scroll', () => {
   document.body.style.setProperty('--scroll',window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
 }, false);
@@ -151,22 +152,42 @@ background: linear-gradient(90deg, rgba(103,73,38,1) 0%, rgba(153,109,152,1) 100
         <span>PRESS ME</span>
       </div>
     </div>
-    <div>
-      <input type="checkbox" id="backfaces" onclick="toggleBackfaces()" checked>
-      <label for="backfaces">
-        Backfaces visible
-      </label>
-    </div>
   </div>
-  <!-- Hover #2 -->
-
-
-  
-
+ 
+  <ul>
+    <li>
+      <label>
+        <input type="checkbox" id="backfaces" onclick="toggleBackfaces()" checked>
+          <div class="icon-box">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+          </div>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox"  onclick="" checked>
+          <div class="icon-box">
+            <i class="fa fa-question" aria-hidden="true"></i>
+          </div>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox"  onclick="" checked>
+          <div class="icon-box">
+            <i class="fa fa-question" aria-hidden="true"></i>
+          </div>
+      </label>
+    </li>
 </center>
 
 
-<h1 style="text-align: center;font-size: 48px;font-family: sans-serif;font-style: italic;">Hi! My name is Peter and I'm a web developer</h1>
+<h1 style="text-align: center;font-size: 48px;font-family: sans-serif;font-style: italic;">
+  Hi! My name is Peter and I'm a web developer!
+</h1>
+<h1 style="text-align: center;font-size: 48px;font-family: sans-serif;font-style: italic;">
+  Thank you for visiting my website!
+</h1>
 
 <div class="progress"></div>
 

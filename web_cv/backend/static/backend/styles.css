@@ -278,7 +278,7 @@
     /* Bind the animation to scroll */
     animation-delay: calc(var(--scroll) * -1s);
     /* These last 2 properites clean up overshoot weirdness */
-    animation-iteration-count: 1;
+    animation-iteration-count: 100;
     animation-fill-mode: both;
   }
 
@@ -347,3 +347,80 @@
     background-color: rgba(255,255,255,0);
   }
  
+  ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    padding: 10px;
+    width: 330px;
+    background: #ebf5fc;
+    /* box-shadow: -2px -2px 5px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.1); */
+ }
+  ul li {
+    position: relative;
+    list-style: none;
+    text-align: center;
+    margin: 15px;
+ }
+  ul li label {
+    position: relative;
+    cursor: pointer;
+ }
+  ul li label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+ }
+  ul li label :checked ~ .icon-box {
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+ }
+  ul li label :checked ~ .icon-box .fa {
+    transform: scale(0.95);
+ }
+  ul li label .icon-box {
+    width: 60px;
+    height: 60px;
+    background: #ebf5fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+ }
+  ul li label .icon-box .fa {
+    font-size: 30px;
+    color: #000000;
+ }
+
+ /* Tooltips */
+  .tooltip {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    padding: 0.4rem 0.6rem;
+    border-radius: 40px;
+    font-size: 0.4rem;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    text-transform: uppercase;
+    transform: translate(-50%, -100%);
+    transition: all 0.3s ease;
+    z-index: 1;
+ }
+  .tooltip:after {
+    display: block;
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    content: "";
+    border: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: transparent;
+    transform: translate(-50%, 100%);
+ }
