@@ -1,0 +1,220 @@
+{% extends 'backend/layout.html' %}
+
+{% load static %}
+
+{% block head %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Peter Kulisov</title>
+  <link rel="stylesheet" href="{% static 'backend/styles_playground.css' %}">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <style type="text/css" media="screen">
+    body {
+      background: rgb(103,73,38);
+background: linear-gradient(90deg, rgba(103,73,38,1) 0%, rgba(153,109,152,1) 100%);
+      color: white;
+      font-family: 'Lucida Grande', Verdana, Arial;
+      font-size: 12px;
+      
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+    }
+
+    .top {
+    /* background-color: #fff; */
+    background-image: url("{% static 'backend/python_logo.jpg' %}");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotateX(90deg) translateZ(calc(var(--size) * .5));
+  }
+  .bottom {
+    background-image: url("{% static 'backend/js_logo.jpg' %}");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotateX(90deg) translateZ(calc(var(--size) * -.5));
+  }
+  .left {
+    background-image: url("{% static 'backend/react-1-logo.jpg' %}");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotateY(90deg) translateZ(calc(var(--size) * .5));
+  }
+  .right {
+    background-image: url("{% static 'backend/css_logo.jpg' %}");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotateY(90deg) translateZ(calc(var(--size) * -.5));
+  }
+  .front {
+    background-image: url("{% static 'backend/html_logo.jpg' %}");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translateZ(calc(var(--size) * .5));
+  }
+  .back {
+    background-image: url("{% static 'backend/django_logo.jpg' %}");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translateZ(calc(var(--size) * -.5));
+  }
+
+
+
+  </style>
+  <script type="text/javascript" charset="utf-8">
+    function hasClassName(inElement, inClassName)
+    {
+        var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)');
+        return regExp.test(inElement.className);
+    }
+
+    function addClassName(inElement, inClassName)
+    {
+        if (!hasClassName(inElement, inClassName))
+            inElement.className = [inElement.className, inClassName].join(' ');
+    }
+
+    function removeClassName(inElement, inClassName)
+    {
+        if (hasClassName(inElement, inClassName)) {
+            var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)', 'g');
+            var curClasses = inElement.className;
+            inElement.className = curClasses.replace(regExp, ' ');
+        }
+    }
+
+    function toggleClassName(inElement, inClassName)
+    {
+        if (hasClassName(inElement, inClassName))
+            removeClassName(inElement, inClassName);
+        else
+            addClassName(inElement, inClassName);
+    }
+
+    function toggleShape()
+    {
+      var shape = document.getElementById('shape');
+      if (hasClassName(shape, 'ring')) {
+        removeClassName(shape, 'ring');
+        addClassName(shape, 'cube');
+      } else {
+        removeClassName(shape, 'cube');
+        addClassName(shape, 'ring');
+      }
+      
+      // Move the ring back in Z so it's not so in-your-face.
+      var stage = document.getElementById('stage');
+      if (hasClassName(shape, 'ring'))
+        stage.style.webkitTransform = 'translateZ(-200px)';
+      else
+        stage.style.webkitTransform = '';
+    }
+    
+    function toggleBackfaces()
+    {
+      var backfacesVisible = document.getElementById('backfaces').checked;
+      var shape = document.getElementById('shape');
+      if (backfacesVisible)
+        addClassName(shape, 'backfaces');
+      else
+        removeClassName(shape, 'backfaces');
+    }
+
+   
+    window.addEventListener('scroll', () => {
+  document.body.style.setProperty('--scroll',window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+}, false);
+
+  </script>
+{% endblock %}
+
+{% block body %}
+
+<div id="container">
+    <div id="stage" style="transform: translateZ(-200px);">
+      <div id="shape" class=" backfaces  ring">
+        <div class="plane one">S</div>
+        <div class="plane two">E</div>
+        <div class="plane three">E</div>
+        <div class="plane four">P</div>
+        <div class="plane five">O</div>
+        <div class="plane six">R</div>
+        <div class="plane seven">T</div>
+        <div class="plane eight">F</div>
+        <div class="plane nine">O</div>
+        <div class="plane ten">L</div>
+        <div class="plane eleven">I</div>
+        <div class="plane twelve">O</div>
+      </div>
+    </div>
+  </div>
+  <center>
+
+    <div class="box-2" style="margin-bottom: 60px">
+      <div class="btn btn-two" onclick="toggleShape()">
+        <span>PRESS ME</span>
+      </div>
+    </div>
+  </div>
+ 
+  <ul>
+    <li>
+      <label>
+        <input type="checkbox" id="backfaces" onclick="toggleBackfaces()" checked>
+          <div class="icon-box">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+          </div>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox"  onclick="" checked>
+          <div class="icon-box">
+            <i class="fa fa-question" aria-hidden="true"></i>
+          </div>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox"  onclick="" checked>
+          <div class="icon-box">
+            <i class="fa fa-question" aria-hidden="true"></i>
+          </div>
+      </label>
+    </li>
+</center>
+
+
+<h1 style="text-align: center;font-size: 48px;font-family: sans-serif;font-style: italic;">
+  Hi! My name is Peter and I'm a web developer!
+</h1>
+<h1 style="text-align: center;font-size: 48px;font-family: sans-serif;font-style: italic;">
+  Thank you for visiting my playground!
+</h1>
+
+<div class="progress"></div>
+
+<div class="cube-wrap">
+  <div class="cube">
+    <div class="side top"></div>
+    <div class="side bottom"></div>
+    <div class="side front"></div>
+    <div class="side back"></div>
+    <div class="side left"></div>
+    <div class="side right"></div>
+  </div>
+</div>
+<div class="cube-wrap1">
+  <div class="cube">
+    <div class="side top"></div>
+    <div class="side bottom"></div>
+    <div class="side front"></div>
+    <div class="side back"></div>
+    <div class="side left"></div>
+    <div class="side right"></div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
