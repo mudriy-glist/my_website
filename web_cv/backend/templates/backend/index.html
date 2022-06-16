@@ -7,21 +7,21 @@
   <title>Peter Kulisov</title>
   <style type="text/css" media="screen">
     body {
-      background-color: black;
+      background: rgb(103,73,38);
+background: linear-gradient(90deg, rgba(103,73,38,1) 0%, rgba(153,109,152,1) 100%);
       color: white;
       font-family: 'Lucida Grande', Verdana, Arial;
       font-size: 12px;
-      background-image: -webkit-gradient(radial,
-                            50% 500, 1,
-                            50% 500, 400,
-                            from(rgba(255, 255, 255, 0.3)),
-                            to(rgba(255, 255, 255, 0)));
+      
      background-repeat: no-repeat;
+     background-attachment: fixed;
     }
 
     .top {
     /* background-color: #fff; */
-    background-image: url("{% static 'backend/python_logo.png' %}");
+    background-image: url("{% static 'backend/python_logo.jpg' %}");
+    background-size: contain;
+    background-repeat: no-repeat;
     transform: rotateX(90deg) translateZ(calc(var(--size) * .5));
   }
   .bottom {
@@ -31,19 +31,27 @@
     transform: rotateX(90deg) translateZ(calc(var(--size) * -.5));
   }
   .left {
-    background-color: #ccc;
+    background-image: url("{% static 'backend/react-1-logo.jpg' %}");
+    background-size: contain;
+    background-repeat: no-repeat;
     transform: rotateY(90deg) translateZ(calc(var(--size) * .5));
   }
   .right {
-    background-color: #ddd;
+    background-image: url("{% static 'backend/css_logo.jpg' %}");
+    background-size: contain;
+    background-repeat: no-repeat;
     transform: rotateY(90deg) translateZ(calc(var(--size) * -.5));
   }
   .front {
-    background-color: #aaa;
+    background-image: url("{% static 'backend/html_logo.jpg' %}");
+    background-size: contain;
+    background-repeat: no-repeat;
     transform: translateZ(calc(var(--size) * .5));
   }
   .back {
-    background-color: #bbb;
+    background-image: url("{% static 'backend/django_logo.jpg' %}");
+    background-size: contain;
+    background-repeat: no-repeat;
     transform: translateZ(calc(var(--size) * -.5));
   }
 
